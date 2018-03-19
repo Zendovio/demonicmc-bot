@@ -26,10 +26,10 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 //Bot turns on
-// bot.on("ready", async () => {
-//   console.log(`${bot.user.username} is online!`);
-//   bot.user.setActivity("d!help");
-// });
+ bot.on("ready", async () => {
+   console.log(`${bot.user.username} is online!`);
+   bot.user.setActivity("d!help");
+ });
 
 bot.on("message", async message => {
   if (message.author.bot) return;
@@ -44,4 +44,4 @@ bot.on("message", async message => {
   if(commandfile) commandfile.run(bot,message,args,prefix,request);
 });
 
-bot.login(botconfig.token);
+bot.login(process.env.token);
